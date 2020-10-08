@@ -27,6 +27,6 @@ public class ProbandoHashSet {
 		System.out.println(cjtoClase.size());
 		
 		// saber si está en la lista de clase una persona:
-		if (cjtoClase.contains(new Persona(21, "Pili"))) System.out.println("está");
+		//if (cjtoClase.contains(new Persona(21, "Pili"))) System.out.println("está");
 	}
 }

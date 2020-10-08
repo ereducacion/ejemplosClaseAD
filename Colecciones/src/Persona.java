@@ -53,19 +53,16 @@ public class Persona {
 	       if (otraCosa == null) {
 	            return false;
 	        }
-
 	        if (otraCosa.getClass() != this.getClass()) {
 	            return false;
 	        }
-
-	        if (((Persona) otraCosa).getNombre() == null) {
+	        if (((Persona) otraCosa).getNombre() == null || 
+	        		!((Persona) otraCosa).getNombre().equalsIgnoreCase(this.nombre)) {
 	            return false;
 	        }
-
 	        if (this.edad != ((Persona) otraCosa).edad) {
 	            return false;
 	        }
-
 	        return true;
 	}
 	
@@ -74,6 +71,12 @@ public class Persona {
 		//tengo que generar un entero que sea único basado en las propiedades de este objeto
 		// me puedo inventar la manera, siempre que se genere un número diferente
 	    int hash = 2;
+	    // es equivalente a la linea 80
+	    if (this.getNombre() != null) {
+	    	hash = 7 * hash + this.getNombre().hashCode();
+	    } else {
+	    	hash = 7 * hash + 0;
+	    }
 	    hash = 7 * hash + (this.getNombre() != null ? this.getNombre().hashCode() : 0);
 	    hash = 7 * hash + this.edad;
 	    return hash;
