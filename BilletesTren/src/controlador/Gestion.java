@@ -217,7 +217,7 @@ public class Gestion {
 	 * @return 0 si quiere salir del menú o algo ha salido mal, sino el índice para acceder al número del vagón elegido
 	 */
 	private int muestraAsientosLibresYEligeVagon(Tren tren) {
-		// muestra los vagoles libres en pantalla
+		// muestra los vagones libres en pantalla
 		// primero muestra los asientos que han sido cancelados
 		
 		// comprobar si el vagón ya no tiene más asientos libres, si es así, añadir un vagón al tren.

@@ -35,7 +35,10 @@ public class Tren {
 		this.vagones = new ArrayList<Vagon>();
 	}
 
-	
+	/**
+	 * Comprueba si el tiene tiene los vagones llenos
+	 * @return
+	 */
 	public boolean lleno() {
 		boolean lleno = true;
 		for (Vagon vagon : vagones) {
