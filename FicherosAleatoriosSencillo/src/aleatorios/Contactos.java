@@ -107,6 +107,7 @@ public class Contactos {
 				registro.setNombre(new String(campo).replace('\0', ' '));
 				registro.setEdad(fichero.readInt());		
 			} catch (Exception e) {
+				// entrará aquí cuando haya llegado al final del fichero
 				registro = null;
 			}
 		}
