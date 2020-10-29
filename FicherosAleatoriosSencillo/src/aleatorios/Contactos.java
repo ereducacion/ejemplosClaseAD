@@ -1,5 +1,6 @@
 package aleatorios;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -52,7 +53,7 @@ public class Contactos {
 		if (fichero != null) {
 			
 			// posiciono el puntero en el sitio que quiero ...
-			fichero.seek((pos-1) * TAMAGNOREGISTRO);
+			fichero.seek(calculaposicion(pos));
 			
 			this.escribir(registro);
 		}
@@ -85,7 +86,7 @@ public class Contactos {
 	
 	/**
 	 * Leer del fichero la persona que se encuentra en la posición actual del cursor
-	 * actual del cursos
+	 * y devuelve null cuando ha llegado al final
 	 * @return
 	 */
 	public Persona leer() {
@@ -102,9 +103,9 @@ public class Contactos {
 				char campo[] = new char[dimensionNombre];
 				for (int i = 0; i < dimensionNombre; i++) {
 					campo[i] = fichero.readChar();
-				}
-				
+				}			
 				registro.setNombre(new String(campo).replace('\0', ' '));
+				
 				registro.setEdad(fichero.readInt());		
 			} catch (Exception e) {
 				// entrará aquí cuando haya llegado al final del fichero
@@ -125,10 +126,26 @@ public class Contactos {
 	public Persona leer (int pos) throws IOException {
 		
 		if (fichero != null) {
-			fichero.seek((pos-1)* TAMAGNOREGISTRO);
+			fichero.seek(calculaposicion(pos));
 		}
 		
 		return this.leer();
+	}
+
+	/**
+	 * @param pos
+	 * @return
+	 */
+	private int calculaposicion(int pos) {
+		return (pos-1)* TAMAGNOREGISTRO;
+	}
+	
+	/**
+	 * Posiciona el cursor al inico de los contactos
+	 * @throws IOException
+	 */
+	public void iniciar() throws IOException  {			
+			fichero.seek(0);	
 	}
 	
 	
