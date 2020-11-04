@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.HashMap;
 
 import datos.Persona;
 
@@ -14,7 +13,6 @@ public class LeerFicheroBinarioObjetos {
 
 	public static void main(String[] args) {
 		
-		HashMap<String, Persona> listaPersonas = new HashMap<String, Persona>();
 		File ficheroPersonas = new File("PersonasBasico.dat");
 		
 		try {

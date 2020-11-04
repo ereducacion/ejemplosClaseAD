@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Eva Royo
  *
  */
-public class Persona implements Serializable{
+public class Persona implements Serializable {
 
 	protected int edad;
 	protected String nombre;
