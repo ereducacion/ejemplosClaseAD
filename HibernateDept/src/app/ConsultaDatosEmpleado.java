@@ -1,5 +1,7 @@
 package app;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.exception.ConstraintViolationException;
@@ -26,19 +28,18 @@ public class ConsultaDatosEmpleado {
 			query.setParameter("apell", apellido);
 			Empleado emp = (Empleado) query.getSingleResult();
 			
-			if (emp != null) {
+			
 				System.out.println("-------");
 				System.out.println(emp.getApellido() + ": \n" + 
 				"cobra " + emp.getSalario() + "\n" +
 				"oficio " + emp.getOficio() + "\n" +
 				"comisión " + emp.getComision() + "\n" +
 				"y trabaja en el departamento de " + emp.getDepartamento().getNombre());
-			} else {
-				System.out.println("No existe este empleado");
-			}
+			
 		
-		} catch (IllegalStateException cve) {
-            cve.printStackTrace();
+		} catch (NoResultException cve) {
+            //cve.printStackTrace();
+            System.out.println("no existe este empleado");
         } catch (RuntimeException ex) {
             ex.printStackTrace();
         } catch (Exception ex) {

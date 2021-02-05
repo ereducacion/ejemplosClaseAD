@@ -3,9 +3,8 @@ package app;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-	
-import controlador.HibernateUtil;
 
+import controlador.HibernateUtil;
 import modelo.*;
 
 public class MainGetDepartamento {

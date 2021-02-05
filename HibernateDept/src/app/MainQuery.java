@@ -11,7 +11,6 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.query.Query;
 
 import controlador.HibernateUtil;
-
 import modelo.*;
 
 public class MainQuery {
